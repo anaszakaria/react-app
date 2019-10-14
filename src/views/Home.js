@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 
-function Home() {
-    return <h1>Home Page</h1>
-}
+export default class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            status: true
+        }
+    }
 
-export default Home
+    render() {
+        return (
+            <h1>Home</h1>
+        )
+    }
+}

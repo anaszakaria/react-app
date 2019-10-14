@@ -1,33 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Home from '../views/Home'
-import About from '../views/About'
-import Contact from '../views/Home'
-import Dashboard from '../views/Dashboard'
-
-const routes = [
-    {
-        path: "/",
-        exact: true,
-        sidebar: () => <div>home!</div>,
-        main: () => Home
-    },
-    {
-        path: "/about",
-        sidebar: () => <div>about!</div>,
-        main: () => About
-    },
-    {
-        path: "/contact",
-        sidebar: () => <div>contact!</div>,
-        main: () => Contact
-    },
-    {
-        path: "/dashboard",
-        sidebar: () => <div>dashboard!</div>,
-        main: () => Dashboard
-    }
-]
+import routes from '../router/index'
 
 export default class LeftPanel extends Component {
     constructor(props) {
