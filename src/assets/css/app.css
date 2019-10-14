@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.app-header {
+    text-align: center;
+    width: 100%;
+    background: #444;
+    color: #FFF;
+    padding: 12px;
+}
+
+.left-panel {
+    width: 300px;
+    padding: 12px;
+    background: #0099ff;
+    height: calc(100% - 45px);
+    position: fixed;
+    top: 45px;
+    left: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.welcome {
+    text-align: center;
+}
