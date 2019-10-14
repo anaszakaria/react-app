@@ -5,19 +5,25 @@
 .app-header {
     text-align: center;
     width: 100%;
-    background: #444;
+    background: #333333;
     color: #FFF;
     padding: 12px;
 }
 
 .left-panel {
-    width: 300px;
+    float: left;
     padding: 12px;
     background: #0099ff;
+    width: 300px;
     height: calc(100% - 45px);
-    position: fixed;
-    top: 45px;
-    left: 0;
+}
+
+.main-content {
+    float: left;
+    padding: 12px;
+    background: #F2F2F2;
+    width: calc(100% - 300px);
+    height: calc(100% - 45px);
 }
 
 .pointer {
