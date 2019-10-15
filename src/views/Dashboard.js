@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PageTitle from '../components/PageTitle'
+import PageTitle from 'components/PageTitle'
 import queryString from 'query-string'
 
 export default class Dashboard extends Component {

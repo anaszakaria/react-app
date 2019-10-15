@@ -1,5 +1,5 @@
 import React from 'react'
-import PageTitle from '../components/PageTitle'
+import PageTitle from 'components/PageTitle'
 
 function About(props) {
     return (

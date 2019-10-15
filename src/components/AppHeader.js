@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import theme from '../config/theme'
+import theme from 'config/theme'
 
 export default class AppHeader extends Component {
     render() {

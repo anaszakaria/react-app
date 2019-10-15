@@ -1,7 +1,7 @@
-import Home from '../views/Home'
-import About from '../views/About'
-import Contact from '../views/Contact'
-import Dashboard from '../views/Dashboard'
+import Home from 'views/Home'
+import About from 'views/About'
+import Contact from 'views/Contact'
+import Dashboard from 'views/Dashboard'
 
 const routes = [
     {

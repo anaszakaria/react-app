@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import theme from '../config/theme'
+import theme from 'config/theme'
 
 export default class LeftPanel extends Component {
     constructor(props) {

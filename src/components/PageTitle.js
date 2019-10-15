@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../config/theme'
+import theme from 'config/theme'
 
 function PageTitle(props) {
     return (

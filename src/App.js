@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Error404 from './views/Error404'
 
 // router
-import routes from './router/index'
+import routes from 'router/index'
 
 // main components
-import AppHeader from './components/AppHeader'
-import LeftPanel from './components/LeftPanel'
+import AppHeader from 'components/AppHeader'
+import LeftPanel from 'components/LeftPanel'
+
+// error page
+import Error404 from 'views/Error404'
 
 export default class App extends Component {
     constructor(props) {
