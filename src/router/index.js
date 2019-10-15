@@ -20,7 +20,7 @@ const routes = [
         component: Contact
     },
     {
-        path: "/dashboard",
+        path: "/dashboard/:id",
         exact: true,
         component: Dashboard
     }

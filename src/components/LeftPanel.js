@@ -12,7 +12,7 @@ export default class LeftPanel extends Component {
                 { id: 'list001', text: 'Home ', icon: 'home', url: '/'},
                 { id: 'list002', text: 'About ', icon: 'info', url: '/about'},
                 { id: 'list003', text: 'Contact ', icon: 'phone', url: '/contact'},
-                { id: 'list004', text: 'Dashboard ', icon: 'chart-line', url: '/dashboard'}
+                { id: 'list004', text: 'Dashboard ', icon: 'chart-line', url: '/dashboard/dash-001'}
             ]
         }
     }
