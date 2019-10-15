@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import routes from './router/index'
-import './assets/css/app.css'
 
-// MAIN COMPONENTS
+// router
+import routes from './router/index'
+
+// main components
 import AppHeader from './components/AppHeader'
 import LeftPanel from './components/LeftPanel'
 
