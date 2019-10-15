@@ -22,22 +22,31 @@ export default class App extends Component {
                 <AppHeader />
                 <Router>
                     <LeftPanel />
-                    <section className="main-content">
-                            <Switch>
-                                {
-                                    routes.map((route, index) => (
-                                        <Route
-                                            key={index}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            component={route.component}
-                                        />
-                                    ))
-                                }
-                            </Switch>
+                    <section style={styles.mainContent}>
+                        <Switch>
+                            {
+                                routes.map((route, index) => (
+                                    <Route
+                                        key={index}
+                                        path={route.path}
+                                        exact={route.exact}
+                                        component={route.component}
+                                    />
+                                ))
+                            }
+                        </Switch>
                     </section>
                 </Router>
             </div>
         )
+    }
+}
+
+const styles = {
+    mainContent: {
+        float: 'left',
+        background: '#F2F2F2',
+        width: 'calc(100% - 300px)',
+        height: 'calc(100% - 45px)'
     }
 }

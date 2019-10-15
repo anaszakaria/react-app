@@ -1,16 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PageTitle from '../components/PageTitle'
 
-export default class Home extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            status: true
-        }
-    }
+function Home() {
+    return (
+        <div>
+            <PageTitle title="Home" />
+            <section style={styles.container}>
+                <p>This is the about Home</p>
+            </section>
+        </div>
+    )
+}
 
-    render() {
-        return (
-            <h1>Home</h1>
-        )
+export default Home
+
+const styles = {
+    container: {
+        padding: '12px'
     }
 }

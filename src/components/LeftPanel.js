@@ -22,7 +22,7 @@ export default class LeftPanel extends Component {
 
     render() {
         return (
-            <section className="left-panel">
+            <section style={styles.container}>
                 <ul>
                     {
                         this.state.menuLists.map(item => {
@@ -39,6 +39,14 @@ export default class LeftPanel extends Component {
 }
 
 const styles = {
+    container: {
+        float: 'left',
+        padding: '12px',
+        color: '#FFF',
+        background: 'blue',
+        width: '300px',
+        height: 'calc(100% - 45px)'
+    },
     icons: {
         marginRight: '12px'
     }
