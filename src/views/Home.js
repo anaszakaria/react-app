@@ -1,7 +1,7 @@
 import React from 'react'
 import PageTitle from '../components/PageTitle'
 
-function Home() {
+function Home(props) {
     return (
         <div>
             <PageTitle title="Home" />

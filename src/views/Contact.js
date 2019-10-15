@@ -1,7 +1,7 @@
 import React from 'react'
 import PageTitle from '../components/PageTitle'
 
-function Contact() {
+function Contact(props) {
     return (
         <div>
             <PageTitle title="Contact" />
