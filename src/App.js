@@ -19,11 +19,15 @@ export default class App extends Component {
         }
     }
 
+    componentDidMount() {
+        console.log(process.env.REACT_APP_PUBLIC_URL)
+    }
+
     render() {
         return (
             <div className="App">
                 <AppHeader />
-                <Router>
+                <Router basename={process.env.REACT_APP_PUBLIC_URL}>
                     <LeftPanel />
                     <section style={styles.mainContent}>
                         <Switch>

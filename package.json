@@ -1,5 +1,6 @@
 {
-    "name": "test-app",
+    "name": "react-app",
+    "homepage": "http://petronas.com/cmis",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
