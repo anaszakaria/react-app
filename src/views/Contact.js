@@ -6,7 +6,7 @@ function Contact() {
         <div>
             <PageTitle title="Contact" />
             <section style={styles.container}>
-                <p>This is the Contact Page</p>
+                <p>This is the contact page</p>
             </section>
         </div>
     )

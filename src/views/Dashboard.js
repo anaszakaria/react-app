@@ -6,7 +6,7 @@ function Dashboard() {
         <div>
             <PageTitle title="Dashboard" />
             <section style={styles.container}>
-                <p>This is the about Dashboard</p>
+                <p>This is the dashboard page</p>
             </section>
         </div>
     )

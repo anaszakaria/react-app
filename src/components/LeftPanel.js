@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import theme from '../config/theme'
 
 export default class LeftPanel extends Component {
     constructor(props) {
@@ -41,11 +42,13 @@ export default class LeftPanel extends Component {
 const styles = {
     container: {
         float: 'left',
+        overflow: 'auto',
         padding: '12px',
         color: '#FFF',
-        background: 'blue',
+        background: theme.accentOrange,
         width: '300px',
-        height: 'calc(100% - 45px)'
+        height: 'calc(100% - 45px)',
+        minHeight: '600px'
     },
     icons: {
         marginRight: '12px'

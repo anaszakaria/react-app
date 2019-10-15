@@ -6,7 +6,7 @@ function Home() {
         <div>
             <PageTitle title="Home" />
             <section style={styles.container}>
-                <p>This is the about Home</p>
+                <p>This is the home page</p>
             </section>
         </div>
     )

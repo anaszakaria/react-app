@@ -45,8 +45,10 @@ export default class App extends Component {
 const styles = {
     mainContent: {
         float: 'left',
+        overflow: 'auto',
         background: '#F2F2F2',
         width: 'calc(100% - 300px)',
-        height: 'calc(100% - 45px)'
+        height: 'calc(100% - 45px)',
+        minHeight: '600px'
     }
 }

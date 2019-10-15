@@ -1,9 +1,10 @@
 import React from 'react'
+import theme from '../config/theme'
 
 function PageTitle(props) {
     return (
         <section style={styles.container}>
-            <h3 style={styles.h3}>{props.title}</h3>
+            <h4 style={styles.title}>{props.title}</h4>
         </section>
     )
 }
@@ -13,9 +14,9 @@ export default PageTitle
 const styles = {
     container: {
         padding: '12px',
-        background: 'green'
+        background: theme.neutral
     },
-    h3: {
+    title: {
         marginTop: '0',
         marginBottom: '0'
     }

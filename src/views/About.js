@@ -6,7 +6,7 @@ function About() {
         <div>
             <PageTitle title="About" />
             <section style={styles.container}>
-                <p>This is the about Page</p>
+                <p>This is the about page</p>
             </section>
         </div>
     )
