@@ -29,7 +29,7 @@ export default class LeftPanel extends Component {
                         this.state.menuLists.map(item => {
                             return <li className="pointer" key={item.id} onClick={this.printList.bind(this, item.text)}>
                                 <FontAwesomeIcon icon={item.icon} className="fa-fw" style={styles.icons}/>
-                                <Link to={item.url}>{item.text}</Link>
+                                <Link to={process.env.PUBLIC_URL + item.url}>{item.text}</Link>
                             </li>
                         })
                     }
