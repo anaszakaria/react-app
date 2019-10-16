@@ -27,20 +27,20 @@ export default class App extends Component {
     render() {
         return (
             <div className="App">
-                <AppHeader />
                 <Router basename={process.env.REACT_APP_PUBLIC_URL}>
+                    <AppHeader />
                     <LeftPanel />
                     <section style={styles.mainContent}>
                         <Switch>
                             {
-                                routes.map((route, index) => (
-                                    <Route
+                                routes.map((route, index) => {
+                                    return <Route
                                         key={index}
                                         path={process.env.PUBLIC_URL + route.path}
                                         exact
                                         component={route.component}
                                     />
-                                ))
+                                })
                             }
                             <Route render={(props) => <Error404 title={'Error 404 - Page Not Found'}/>} />
                         </Switch>

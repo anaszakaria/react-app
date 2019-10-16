@@ -2,6 +2,7 @@ import Home from 'views/Home'
 import About from 'views/About'
 import Contact from 'views/Contact'
 import Dashboard from 'views/Dashboard'
+import SignIn from 'views/user/SignIn'
 
 const routes = [
     {
@@ -22,6 +23,12 @@ const routes = [
     {
         path: "/dashboard/:id",
         component: Dashboard,
+        meta: {}
+    },
+    // USER
+    {
+        path: "/signin",
+        component: SignIn,
         meta: {}
     }
 ]
