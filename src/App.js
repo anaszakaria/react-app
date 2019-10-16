@@ -16,12 +16,12 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            pageIndex: 0
+            loggedIn: false
         }
     }
 
     componentDidMount() {
-
+        console.log(this.props)
     }
 
     render() {
@@ -42,7 +42,7 @@ export default class App extends Component {
                                     />
                                 })
                             }
-                            <Route render={(props) => <Error404 title={'Error 404 - Page Not Found'}/>} />
+                            <Route render={(props) => <Error404 {...props} title={'Error 404 - Page Not Found'}/>} />
                         </Switch>
                     </section>
                 </Router>
