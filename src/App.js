@@ -6,6 +6,7 @@ import routes from 'router/index'
 
 // main components
 import AppHeader from 'components/AppHeader'
+import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
 
 // error page
@@ -36,7 +37,7 @@ export default class App extends Component {
                                     <Route
                                         key={index}
                                         path={process.env.PUBLIC_URL + route.path}
-                                        exact={route.exact}
+                                        exact
                                         component={route.component}
                                     />
                                 ))
@@ -45,6 +46,7 @@ export default class App extends Component {
                         </Switch>
                     </section>
                 </Router>
+                <AppFooter />
             </div>
         )
     }

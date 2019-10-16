@@ -6,23 +6,23 @@ import Dashboard from 'views/Dashboard'
 const routes = [
     {
         path: "/",
-        exact: true,
-        component: Home
+        component: Home,
+        meta: { showFooter: true }
     },
     {
         path: "/about",
-        exact: true,
-        component: About
+        component: About,
+        meta: { showFooter: true }
     },
     {
         path: "/contact",
-        exact: true,
-        component: Contact
+        component: Contact,
+        meta: { showFooter: true }
     },
     {
         path: "/dashboard/:id",
-        exact: true,
-        component: Dashboard
+        component: Dashboard,
+        meta: {}
     }
 ]
 
