@@ -3,7 +3,7 @@ import React from 'react'
 function Error404(props) {
     return (
         <section style={styles.container}>
-            <h1>Error 404: Page Not Found</h1>
+            <h1>{props.title}</h1>
         </section>
     )
 }

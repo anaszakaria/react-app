@@ -41,7 +41,7 @@ export default class App extends Component {
                                     />
                                 ))
                             }
-                            <Route component={Error404} />
+                            <Route render={(props) => <Error404 title={'Error 404 - Page Not Found'}/>} />
                         </Switch>
                     </section>
                 </Router>
