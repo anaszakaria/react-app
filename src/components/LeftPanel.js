@@ -9,6 +9,8 @@ export default class LeftPanel extends Component {
         this.state = {
             leftpanel: true,
             menuLists: [
+                { id: 'list001a', text: 'Public ', icon: 'home', url: '/public'},
+                { id: 'list001b', text: 'Protected ', icon: 'home', url: '/protected'},
                 { id: 'list001', text: 'Home ', icon: 'home', url: '/'},
                 { id: 'list002', text: 'About ', icon: 'info', url: '/about'},
                 { id: 'list003', text: 'Contact ', icon: 'phone', url: '/contact'},

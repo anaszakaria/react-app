@@ -39,6 +39,7 @@ export default class App extends Component {
                     <AppHeader />
                     <LeftPanel />
                     <section style={styles.mainContent}>
+                        <AuthButton />
                         <Switch>
                             <Route path="/public">
                                 <PublicPage />
