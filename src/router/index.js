@@ -23,12 +23,12 @@ const routes = [
         access: 'public',
         meta: { showFooter: true }
     },
-    // {
-    //     path: "/dashboard/:id",
-    //     component: Dashboard,
-    //     access: 'protected',
-    //     meta: {}
-    // },
+    {
+        path: "/dashboard/:id",
+        component: Dashboard,
+        access: 'protected',
+        meta: {}
+    },
     // USER
     {
         path: "/signin",

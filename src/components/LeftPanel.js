@@ -48,7 +48,7 @@ const styles = {
         background: theme.accentOrange,
         width: '300px',
         height: 'calc(100% - 45px)',
-        minHeight: '600px'
+        minHeight: '816px'
     },
     icons: {
         marginRight: '12px'
