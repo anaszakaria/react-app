@@ -17,12 +17,12 @@ const routes = [
         access: 'public',
         meta: { showFooter: true }
     },
-    // {
-    //     path: "/contact/:id",
-    //     component: Contact,
-    //     access: 'public',
-    //     meta: { showFooter: true }
-    // },
+    {
+        path: "/contact",
+        component: Contact,
+        access: 'public',
+        meta: { showFooter: true }
+    },
     // {
     //     path: "/dashboard/:id",
     //     component: Dashboard,

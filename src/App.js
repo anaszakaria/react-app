@@ -17,7 +17,6 @@ import AppHeader from 'components/AppHeader'
 import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
 import Dashboard from 'views/Dashboard'
-import Contact from 'views/Contact'
 
 // error page
 import Error404 from 'views/Error404'
@@ -26,6 +25,7 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            user: null,
             loggedIn: false,
             info: {
                 name: 'Anas',
@@ -47,21 +47,12 @@ export default class App extends Component {
                     <section style={styles.mainContent}>
                         <AuthButton />
                         <Switch>
-                            <Route path="/public">
-                                <PublicPage />
-                            </Route>
                             <Route path="/login">
                                 <LoginPage />
                             </Route>
-                            <PrivateRoute path="/protected/:id">
-                                <ProtectedPage />
-                            </PrivateRoute>
-                            <PrivateRoute path="/dashboard/:id">
-                                <Dashboard />
-                            </PrivateRoute>
-                            <Route path="/contact/:id" render={(props) => fakeAuth.isAuthenticated ?
+                            <Route path="/dashboard/:id" render={(props) => user.isAuthenticated ?
                                 (
-                                    <Contact {...props} data={this.state} />
+                                    <Dashboard {...props} data={this.state} />
                                 ) : (
                                     <Redirect to={{pathname: "/login", state: { from: props.location }}}/>
                                 )}
@@ -86,14 +77,14 @@ export default class App extends Component {
     }
 }
 
-const fakeAuth = {
+const user = {
     isAuthenticated: false,
     authenticate(cb) {
-        fakeAuth.isAuthenticated = true
+        user.isAuthenticated = true
         setTimeout(cb, 100) // fake async
     },
     signout(cb) {
-        fakeAuth.isAuthenticated = false
+        user.isAuthenticated = false
         setTimeout(cb, 100)
     }
 }
@@ -101,11 +92,11 @@ const fakeAuth = {
 function AuthButton() {
     let history = useHistory()
 
-    return fakeAuth.isAuthenticated ? (
+    return user.isAuthenticated ? (
         <p>
             Welcome!
             {" "}
-            <button onClick={() => { fakeAuth.signout(() => history.push("/")) } }>Sign out</button>
+            <button onClick={() => { user.signout(() => history.push("/")) } }>Sign out</button>
         </p>
     ) : (
         <p>You are not logged in</p>
@@ -118,7 +109,7 @@ function PrivateRoute({ children, ...props }) {
         <Route
             {...props}
             render={({ location }) =>
-            fakeAuth.isAuthenticated ? (
+            user.isAuthenticated ? (
                 children
             ) : (
                 <Redirect
@@ -169,7 +160,7 @@ function LoginPage() {
 
     let { from } = location.state || { from: { pathname: "/" } }
     let login = () => {
-        fakeAuth.authenticate(() => {
+        user.authenticate(() => {
             history.replace(from)
         })
     }

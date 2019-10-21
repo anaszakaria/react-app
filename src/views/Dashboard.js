@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
 import PageTitle from 'components/PageTitle'
 import queryString from 'query-string'
 
@@ -15,11 +14,10 @@ export default class Dashboard extends Component {
 
     componentDidMount() {
         console.log(this.props)
-        // const params = useParams()
-        // this.setState((prevState, { match: { params }, location: { search } }) => {
-        //     const result = queryString.parse(search)
-        //     return { id: params.id, user: result.user, role: result.role }
-        // })
+        this.setState((prevState, { match: { params }, location: { search } }) => {
+            const result = queryString.parse(search)
+            return { id: params.id, user: result.user, role: result.role }
+        })
     }
 
     render() {
