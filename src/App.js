@@ -8,7 +8,6 @@ import routes from 'router/index'
 import AppHeader from 'components/AppHeader'
 import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
-import UserStatus from 'components/UserStatus'
 
 // error page
 import Error404 from 'views/Error404'
@@ -33,10 +32,9 @@ export default class App extends Component {
         return (
             <div className="App">
                 <Router basename={process.env.REACT_APP_PUBLIC_URL}>
-                    <AppHeader />
+                    <AppHeader data={this.state}/>
                     <LeftPanel />
                     <section style={styles.mainContent}>
-                        <UserStatus data={this.state}/>
                         <Switch>
                             {
                                 routes.map((route, index) => {

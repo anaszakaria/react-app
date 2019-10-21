@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import PageTitle from 'components/PageTitle'
+import theme from 'config/theme'
 
 function SignIn({ data: { user } }) {
     let history = useHistory()
@@ -22,7 +23,7 @@ function SignIn({ data: { user } }) {
                     <label>Password:</label><br/>
                     <input type="password" name="password" /><br/><br/>
                 </form>
-                <button onClick={signIn}>Sign In</button>
+                <button style={styles.signInButton} onClick={signIn}>Sign In</button>
             </section>
         </div>
     )
@@ -34,5 +35,8 @@ const styles = {
     container: {
         padding: '12px',
         textAlign: 'center'
+    },
+    signInButton: {
+        background: theme.primaryGreen
     }
 }
