@@ -17,6 +17,7 @@ import AppHeader from 'components/AppHeader'
 import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
 import Dashboard from 'views/Dashboard'
+import PageTitle from 'components/PageTitle'
 
 // error page
 import Error404 from 'views/Error404'
@@ -50,11 +51,14 @@ export default class App extends Component {
                             <Route path="/login">
                                 <LoginPage />
                             </Route>
+                            <Route path="/signin">
+                                <SignIn />
+                            </Route>
                             <Route path="/dashboard/:id" render={(props) => user.isAuthenticated ?
                                 (
                                     <Dashboard {...props} data={this.state} />
                                 ) : (
-                                    <Redirect to={{pathname: "/login", state: { from: props.location }}}/>
+                                    <Redirect to={{pathname: "/signin", state: { from: props.location }}}/>
                                 )}
                             />
                             {
@@ -103,57 +107,6 @@ function AuthButton() {
     )
 }
 
-function PrivateRoute({ children, ...props }) {
-    console.log(children, {...props})
-    return (
-        <Route
-            {...props}
-            render={({ location }) =>
-            user.isAuthenticated ? (
-                children
-            ) : (
-                <Redirect
-                to={{
-                    pathname: "/login",
-                    state: { from: location }
-                }}
-                />
-            )
-            }
-        />
-    );
-}
-
-function PublicPage() {
-    return <h3>Public</h3>;
-}
-
-class ProtectedPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            id: 'tempID',
-            user: 'No User',
-            role: 'No Role'
-        }
-    }
-
-    componentDidMount() {
-
-    }
-
-    render() {
-        return (
-            <div>
-                <h3>Protected</h3>
-                <p>ID: {this.state.id}</p>
-                <p>User: {this.state.user}</p>
-                <p>Role: {this.state.role}</p>
-            </div>
-        )
-    }
-}
-
 function LoginPage() {
     let history = useHistory()
     let location = useLocation()
@@ -173,6 +126,33 @@ function LoginPage() {
     );
 }
 
+function SignIn(props) {
+    let history = useHistory()
+    let location = useLocation()
+
+    let { from } = location.state || { from: { pathname: "/" } }
+    let signIn = () => {
+        user.authenticate(() => {
+            history.replace(from)
+        })
+    }
+
+    return (
+        <div>
+            <PageTitle title="Sign In" />
+            <section style={styles.container}>
+                <form>
+                    <label>User:</label><br/>
+                    <input type="text" name="username" /><br/>
+                    <label>Password:</label><br/>
+                    <input type="password" name="password" /><br/><br/>
+                </form>
+                <button onClick={signIn}>Log in</button>
+            </section>
+        </div>
+    )
+}
+
 const styles = {
     mainContent: {
         float: 'left',
@@ -181,5 +161,9 @@ const styles = {
         width: 'calc(100% - 300px)',
         height: 'calc(100% - 45px)',
         minHeight: '600px'
+    },
+    container: {
+        padding: '12px',
+        textAlign: 'center'
     }
 }

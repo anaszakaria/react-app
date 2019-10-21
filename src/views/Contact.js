@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
 import PageTitle from 'components/PageTitle'
 
 function Contact(props) {
