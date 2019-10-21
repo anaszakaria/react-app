@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect
-} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 // router
 import routes from 'router/index'
@@ -14,7 +9,6 @@ import AppHeader from 'components/AppHeader'
 import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
 import UserStatus from 'components/UserStatus'
-import SignIn from 'views/user/SignIn'
 
 // error page
 import Error404 from 'views/Error404'
@@ -44,9 +38,6 @@ export default class App extends Component {
                     <section style={styles.mainContent}>
                         <UserStatus data={this.state}/>
                         <Switch>
-                            <Route path="/signin">
-                                <SignIn data={this.state}/>
-                            </Route>
                             {
                                 routes.map((route, index) => {
                                     if (route.access === 'public') {
