@@ -32,7 +32,7 @@ export default class App extends Component {
         return (
             <div className="App">
                 <Router basename={process.env.REACT_APP_PUBLIC_URL}>
-                    <AppHeader data={this.state}/>
+                    <AppHeader user={this.state.user}/>
                     <LeftPanel />
                     <section style={styles.mainContent}>
                         <Switch>

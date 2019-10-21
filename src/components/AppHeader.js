@@ -3,12 +3,12 @@ import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import theme from 'config/theme'
 
-function AppHeader(props) {
+function AppHeader({ user }) {
     return (
         <header style={styles.container}>
             <MainTitle title="CMIS" />
             <LoginNav />
-            <LogInStatus info={props} />
+            <LogInStatus user={user} />
         </header>
     )
 }
@@ -23,7 +23,7 @@ function MainTitle(props) {
     )
 }
 
-function LogInStatus({ info: { data: { user }}}) {
+function LogInStatus({ user }) {
     let history = useHistory()
 
     let signOut = () => {
