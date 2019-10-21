@@ -13,7 +13,6 @@ export default class Dashboard extends Component {
     }
 
     componentDidMount() {
-        console.log('dashboard entered')
         this.setState((prevState, { match: { params }, location: { search } }) => {
             const result = queryString.parse(search)
             return { id: params.id, user: result.user, role: result.role }

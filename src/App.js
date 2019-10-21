@@ -16,6 +16,7 @@ import routes from 'router/index'
 import AppHeader from 'components/AppHeader'
 import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
+import UserStatus from 'components/UserStatus'
 import Dashboard from 'views/Dashboard'
 import PageTitle from 'components/PageTitle'
 
@@ -26,7 +27,11 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: null,
+            user: {
+                name: 'Anas',
+                position: 'Lead Developer',
+                isAuthenticated: false
+            },
             loggedIn: false,
             info: {
                 name: 'Anas',
@@ -46,15 +51,12 @@ export default class App extends Component {
                     <AppHeader />
                     <LeftPanel />
                     <section style={styles.mainContent}>
-                        <AuthButton />
+                        <UserStatus data={this.state}/>
                         <Switch>
-                            <Route path="/login">
-                                <LoginPage />
-                            </Route>
                             <Route path="/signin">
-                                <SignIn />
+                                <SignIn data={this.state}/>
                             </Route>
-                            <Route path="/dashboard/:id" render={(props) => user.isAuthenticated ?
+                            <Route path="/dashboard/:id" render={(props) => this.state.user.isAuthenticated ?
                                 (
                                     <Dashboard {...props} data={this.state} />
                                 ) : (
@@ -93,48 +95,14 @@ const user = {
     }
 }
 
-function AuthButton() {
-    let history = useHistory()
-
-    return user.isAuthenticated ? (
-        <p>
-            Welcome!
-            {" "}
-            <button onClick={() => { user.signout(() => history.push("/")) } }>Sign out</button>
-        </p>
-    ) : (
-        <p>You are not logged in</p>
-    )
-}
-
-function LoginPage() {
-    let history = useHistory()
-    let location = useLocation()
-
-    let { from } = location.state || { from: { pathname: "/" } }
-    let login = () => {
-        user.authenticate(() => {
-            history.replace(from)
-        })
-    }
-
-    return (
-        <div>
-            <p>You must log in to view the page at {from.pathname}</p>
-            <button onClick={login}>Log in</button>
-        </div>
-    );
-}
-
-function SignIn(props) {
+function SignIn({ data: { user } }) {
     let history = useHistory()
     let location = useLocation()
 
     let { from } = location.state || { from: { pathname: "/" } }
     let signIn = () => {
-        user.authenticate(() => {
-            history.replace(from)
-        })
+        user.isAuthenticated = true
+        history.replace(from)
     }
 
     return (
@@ -147,7 +115,7 @@ function SignIn(props) {
                     <label>Password:</label><br/>
                     <input type="password" name="password" /><br/><br/>
                 </form>
-                <button onClick={signIn}>Log in</button>
+                <button onClick={signIn}>Sign In</button>
             </section>
         </div>
     )
