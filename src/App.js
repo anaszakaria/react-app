@@ -5,9 +5,8 @@ import {
     Route,
     Redirect,
     useHistory,
-    useLocation,
-    useParams
-} from "react-router-dom"
+    useLocation
+} from 'react-router-dom'
 
 // router
 import routes from 'router/index'
@@ -18,7 +17,6 @@ import AppFooter from 'components/AppFooter'
 import LeftPanel from 'components/LeftPanel'
 import UserStatus from 'components/UserStatus'
 import Dashboard from 'views/Dashboard'
-import PageTitle from 'components/PageTitle'
 
 // error page
 import Error404 from 'views/Error404'
@@ -53,9 +51,6 @@ export default class App extends Component {
                     <section style={styles.mainContent}>
                         <UserStatus data={this.state}/>
                         <Switch>
-                            <Route path="/signin">
-                                <SignIn data={this.state}/>
-                            </Route>
                             <Route path="/dashboard/:id" render={(props) => this.state.user.isAuthenticated ?
                                 (
                                     <Dashboard {...props} data={this.state} />
@@ -65,11 +60,11 @@ export default class App extends Component {
                             />
                             {
                                 routes.map((route, index) => {
-                                    return <Route
-                                        key={index}
-                                        path={process.env.PUBLIC_URL + route.path}
-                                        exact
-                                        component={route.component}
+                                    return <Route path={process.env.PUBLIC_URL + route.path} key={index} exact render={(props) =>
+                                        (
+                                            <route.component {...props} data={this.state} />
+                                        )
+                                    }
                                     />
                                 })
                             }
@@ -83,44 +78,6 @@ export default class App extends Component {
     }
 }
 
-const user = {
-    isAuthenticated: false,
-    authenticate(cb) {
-        user.isAuthenticated = true
-        setTimeout(cb, 100) // fake async
-    },
-    signout(cb) {
-        user.isAuthenticated = false
-        setTimeout(cb, 100)
-    }
-}
-
-function SignIn({ data: { user } }) {
-    let history = useHistory()
-    let location = useLocation()
-
-    let { from } = location.state || { from: { pathname: "/" } }
-    let signIn = () => {
-        user.isAuthenticated = true
-        history.replace(from)
-    }
-
-    return (
-        <div>
-            <PageTitle title="Sign In" />
-            <section style={styles.container}>
-                <form>
-                    <label>User:</label><br/>
-                    <input type="text" name="username" /><br/>
-                    <label>Password:</label><br/>
-                    <input type="password" name="password" /><br/><br/>
-                </form>
-                <button onClick={signIn}>Sign In</button>
-            </section>
-        </div>
-    )
-}
-
 const styles = {
     mainContent: {
         float: 'left',
@@ -129,9 +86,5 @@ const styles = {
         width: 'calc(100% - 300px)',
         height: 'calc(100% - 45px)',
         minHeight: '600px'
-    },
-    container: {
-        padding: '12px',
-        textAlign: 'center'
     }
 }

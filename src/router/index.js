@@ -30,12 +30,12 @@ const routes = [
     //     meta: {}
     // },
     // USER
-    // {
-    //     path: "/signin",
-    //     component: SignIn,
-    //     access: 'public',
-    //     meta: {}
-    // }
+    {
+        path: "/signin",
+        component: SignIn,
+        access: 'public',
+        meta: {}
+    }
 ]
 
 export default routes
