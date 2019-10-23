@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import theme from 'config/theme'
@@ -15,10 +15,10 @@ function AppHeader({ user }) {
 
 export default AppHeader
 
-function MainTitle(props) {
+function MainTitle({ title }) {
     return (
         <div style={styles.titleContainer}>
-            <h2 style={styles.title}>{props.title}</h2>
+            <h2 style={styles.title}>{title}</h2>
         </div>
     )
 }

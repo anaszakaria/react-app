@@ -38,19 +38,14 @@ export default class App extends Component {
                         <Switch>
                             {
                                 routes.map((route, index) => {
-                                    if (route.access === 'public') {
-                                        return <Route key={index} path={route.path} exact render={(props) =>
-                                            (<route.component {...props} data={this.state} />)}
-                                        />
-                                    } else {
-                                        return <Route key={index} path={route.path} render={(props) => this.state.user.isAuthenticated ?
-                                            (
-                                                <route.component {...props} data={this.state} />
-                                            ) : (
-                                                <Redirect to={{pathname: "/signin", state: { from: props.location }}}/>
-                                            )}
-                                        />
-                                    }
+                                    return <Route key={index} path={route.path} exact render={(props) =>
+                                        route.access === 'public' | this.state.user.isAuthenticated ?
+                                        (
+                                            <route.component {...props} data={this.state} />
+                                        ) : (
+                                            <Redirect to={{pathname: "/signin", state: { from: props.location }}}/>
+                                        )}
+                                    />
                                 })
                             }
                             <Route render={(props) => <Error404 {...props} title={'Error 404 - Page Not Found'}/>} />
