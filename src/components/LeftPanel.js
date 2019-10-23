@@ -8,6 +8,10 @@ export default class LeftPanel extends Component {
         super(props)
         this.state = {
             leftpanel: true,
+            info: {
+                category: 'Dev',
+                tag: 'JS'
+            },
             menuLists: [
                 { id: 'list001', text: 'Home ', icon: 'home', url: '/'},
                 { id: 'list002', text: 'About ', icon: 'info', url: '/about'},
@@ -24,6 +28,9 @@ export default class LeftPanel extends Component {
     render() {
         return (
             <section style={styles.container}>
+                <InfoCenter>
+                    <Info info={this.state.info} size="small" />
+                </InfoCenter>
                 <ul>
                     {
                         this.state.menuLists.map(item => {
@@ -39,6 +46,25 @@ export default class LeftPanel extends Component {
     }
 }
 
+function InfoCenter({ children }) {
+    return (
+        <div>
+            <div style={styles.infoCenterContainer}>
+                <span>Information Center</span>
+            </div>
+            {children}
+        </div>
+    )
+}
+
+function Info({ info }) {
+    return (
+        <div style={styles.infoContainer}>
+            <span>{info.category} - {info.tag}</span>
+        </div>
+    )
+}
+
 const styles = {
     container: {
         float: 'left',
@@ -49,6 +75,13 @@ const styles = {
         width: '300px',
         height: 'calc(100% - 45px)',
         minHeight: '816px'
+    },
+    infoCenterContainer: {
+        paddingBottom: '4px'
+    },
+    infoContainer: {
+        background: '#402B53',
+        padding: '4px'
     },
     icons: {
         marginRight: '12px'
