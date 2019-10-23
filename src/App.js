@@ -43,7 +43,7 @@ export default class App extends Component {
                                         (
                                             <route.component {...props} data={this.state} />
                                         ) : (
-                                            <Redirect to={{pathname: "/signin", state: { from: props.location }}}/>
+                                            <Redirect to={{pathname: "/signin"}}/>
                                         )}
                                     />
                                 })

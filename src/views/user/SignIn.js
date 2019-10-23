@@ -1,16 +1,14 @@
 import React from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import PageTitle from 'components/PageTitle'
 import theme from 'config/theme'
 
 function SignIn({ data: { user } }) {
-    let history = useHistory()
-    let location = useLocation()
+    const history = useHistory()
 
-    let { from } = location.state || { from: { pathname: "/" } }
-    let signIn = () => {
+    const signIn = () => {
         user.isAuthenticated = true
-        history.replace(from)
+        history.push('/dashboard/dash-001?user=Anas&role=admin')
     }
 
     return (
