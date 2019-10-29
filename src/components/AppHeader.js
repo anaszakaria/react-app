@@ -6,7 +6,7 @@ import theme from 'config/theme'
 function AppHeader({ user }) {
     return (
         <header style={styles.container}>
-            <MainTitle title="CMIS" />
+            <MainTitle title="ABC" />
             <LoginNav />
             <LogInStatus user={user} />
         </header>

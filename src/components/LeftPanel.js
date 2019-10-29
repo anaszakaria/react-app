@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import theme from 'config/theme'
+import Counter from 'components/Counter'
 
 export default class LeftPanel extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ export default class LeftPanel extends Component {
                         })
                     }
                 </ul>
+                <Counter />
             </section>
         )
     }
@@ -80,7 +82,7 @@ const styles = {
         paddingBottom: '4px'
     },
     infoContainer: {
-        background: '#402B53',
+        background: theme.accentPurple3,
         padding: '4px'
     },
     icons: {
