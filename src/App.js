@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { createStore } from 'redux'
-import reducer from 'store/Reducer'
+import CounterReducer from 'store/CounterReducer'
 
 // router
 import routes from 'router/index'
@@ -16,7 +16,7 @@ import LeftPanel from 'components/LeftPanel'
 import Error404 from 'views/Error404'
 
 // init store
-const store = createStore(reducer)
+const store = createStore(CounterReducer)
 
 export default class App extends Component {
     constructor(props) {

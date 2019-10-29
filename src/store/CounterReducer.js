@@ -1,7 +1,6 @@
 import { INCREMENT, DECREMENT, RESET } from 'store/actions'
 
 const initialState = {
-    user: null,
     count: 0
 }
 
@@ -10,7 +9,6 @@ function reducer(state = initialState, action) {
     switch(action.type) {
         case INCREMENT:
         return {
-            user: null,
             count: state.count + 1
         }
         case DECREMENT:

@@ -26,7 +26,7 @@ class LeftPanel extends Component {
         }
     }
 
-    printList(text) {
+    printList = text => {
         console.log(text)
     }
 
