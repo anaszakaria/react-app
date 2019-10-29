@@ -4,18 +4,6 @@ import 'modules/fontawesome'
 import 'assets/css/app.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { createStore } from 'redux'
-
-const initialState = {
-    count: 0
-}
-
-function reducer(state = initialState, action) {
-    console.log('reducer', state, action)
-    return state
-}
-
-const store = createStore(reducer)
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

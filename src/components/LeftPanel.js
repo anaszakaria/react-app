@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+// theme
 import theme from 'config/theme'
+
+// import used components
 import Counter from 'components/Counter'
 
-export default class LeftPanel extends Component {
+class LeftPanel extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -47,6 +51,8 @@ export default class LeftPanel extends Component {
         )
     }
 }
+
+export default LeftPanel
 
 function InfoCenter({ children }) {
     return (

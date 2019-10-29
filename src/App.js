@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { createStore } from 'redux'
+import reducer from 'store/Reducer'
 
 // router
 import routes from 'router/index'
@@ -11,6 +14,9 @@ import LeftPanel from 'components/LeftPanel'
 
 // error page
 import Error404 from 'views/Error404'
+
+// init store
+const store = createStore(reducer)
 
 export default class App extends Component {
     constructor(props) {
@@ -31,28 +37,30 @@ export default class App extends Component {
     render() {
         return (
             <div className="App">
-                <Router basename={process.env.REACT_APP_PUBLIC_URL}>
-                    <AppHeader user={this.state.user}/>
-                    <LeftPanel />
-                    <section style={styles.mainContent}>
-                        <Switch>
-                            {
-                                routes.map((route, index) => {
-                                    return <Route key={index} path={route.path} exact render={(props) =>
-                                        route.access === 'public' | this.state.user.isAuthenticated ?
-                                        (
-                                            <route.component {...props} data={this.state} />
-                                        ) : (
-                                            <Redirect to={{pathname: "/signin"}}/>
-                                        )}
-                                    />
-                                })
-                            }
-                            <Route render={(props) => <Error404 {...props} title={'Error 404 - Page Not Found'}/>} />
-                        </Switch>
-                    </section>
-                </Router>
-                <AppFooter />
+                <Provider store={store}>
+                    <Router basename={process.env.REACT_APP_PUBLIC_URL}>
+                        <AppHeader user={this.state.user}/>
+                        <LeftPanel />
+                        <section style={styles.mainContent}>
+                            <Switch>
+                                {
+                                    routes.map((route, index) => {
+                                        return <Route key={index} path={route.path} exact render={(props) =>
+                                            route.access === 'public' | this.state.user.isAuthenticated ?
+                                            (
+                                                <route.component {...props} data={this.state} />
+                                            ) : (
+                                                <Redirect to={{pathname: "/signin"}}/>
+                                            )}
+                                        />
+                                    })
+                                }
+                                <Route render={(props) => <Error404 {...props} title={'Error 404 - Page Not Found'}/>} />
+                            </Switch>
+                        </section>
+                    </Router>
+                    <AppFooter />
+                </Provider>
             </div>
         )
     }

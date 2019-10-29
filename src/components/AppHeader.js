@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import theme from 'config/theme'
@@ -55,6 +56,12 @@ function LoginNav() {
             </Link>
         </div>
     )
+}
+
+function mapStateToProps(state) {
+    return {
+        count: state.count
+    }
 }
 
 const styles = {
